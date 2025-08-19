@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dhaka Central Polytechnic Institute</title>
+  <meta name="description" content="Professional, responsive college website template. Replace placeholder content & images with your school's content." />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --sky: #7ec8ff;      /* sky blue */
+      --white: #ffffff;
+      --deep: #0b3d91;     /* deep blue */
+      --purple: #6b46c1;   /* purple */
+      --muted: #6b7280;
+      --radius: 12px;
+      --container: 1200px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{color:#0f1724;background:linear-gradient(180deg,var(--white),#fbfdff);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{background:linear-gradient(90deg,var(--white),rgba(255,255,255,0.9));backdrop-filter: blur(6px);position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(15,23,36,0.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--sky),var(--purple));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    .cta{background:linear-gradient(90deg,var(--deep),var(--purple));color:var(--white);padding:10px 14px;border-radius:10px;font-weight:600}
+    .menu-toggle{display:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 430px;gap:36px;align-items:center;padding:54px 0}
+    .hero-left{max-width:720px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(124, 169, 255,0.12);color:var(--deep);font-weight:600;margin-bottom:18px}
+    h1{font-size:34px;line-height:1.06;margin:0 0 16px;color:#071133}
+    p.lead{color:var(--muted);margin:0 0 22px}
+    .hero-actions{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:10px;font-weight:600;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--sky),var(--deep));color:var(--white)}
+    .btn-outline{background:transparent;border:1px solid rgba(11,61,145,0.08);color:var(--deep)}
+
+    .hero-card{background:linear-gradient(180deg,rgba(106,90,205,0.06),rgba(126,200,255,0.03));border-radius:16px;padding:18px;box-shadow:0 8px 30px rgba(11,61,145,0.06)}
+    .hero-image{width:100%;height:260px;border-radius:10px;object-fit:cover}
+
+    /* Sections */
+    section{padding:54px 0;border-top:1px solid rgba(10,15,30,0.03)}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h2{margin:0;font-size:20px}
+    .muted{color:var(--muted)}
+
+    /* Cards and grids */
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.hero-card{order:2}.menu-toggle{display:block}.nav ul{display:none}.grid.cols-3{grid-template-columns:repeat(2,1fr)}.grid.cols-4{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid.cols-3{grid-template-columns:1fr}.grid.cols-4{grid-template-columns:1fr}.hero{padding:28px 0}.h1{font-size:28px}}
+
+    .card{background:var(--white);border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(11,61,145,0.04);transition:transform .22s ease,box-shadow .22s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(11,61,145,0.08)}
+
+    /* Teachers */
+    .teacher{display:flex;gap:12px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:12px;object-fit:cover}
+    .meta small{display:block;color:var(--muted)}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    @media(max-width:980px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+    /* News items */
+    .news-item{display:flex;gap:12px;align-items:flex-start}
+    .news-item img{width:84px;height:64px;object-fit:cover;border-radius:8px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(15,23,36,0.06);font-size:15px}
+    textarea{min-height:120px;resize:vertical}
+
+    /* Footer */
+    footer{background:#071133;color:var(--white);padding:36px 0;border-top:1px solid rgba(255,255,255,0.04)}
+    footer a{color:rgba(255,255,255,0.9)}
+    .socials{display:flex;gap:12px}
+
+    /* small helpers */
+    .muted-small{color:var(--muted);font-size:14px}
+    .pill{padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--sky),var(--purple));color:var(--white);display:inline-block}
+
+    /* simple animation on reveal */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo" aria-hidden>DCPI</div>
+      <div>
+        <div style="font-weight:700">Dhaka Central Polytechnic Institute</div>
+        <div style="font-size:13px;color:var(--muted)">Established 2006</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#teachers">Teachers</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div style="display:flex;gap:12px;align-items:center">
+      <a class="cta" href="#admissions">Admissions</a>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" id="menuBtn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-left">
+      <span class="tag">Welcome to DCPI</span>
+      <h1>Shaping future leaders through quality education &amp; hands-on learning</h1>
+      <p class="lead">A modern campus with experienced faculty, vibrant student life and strong industry links. Join our community to grow, learn and lead.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#admissions">Apply Now</a>
+        <a class="btn btn-outline" href="#about">Learn More</a>
+      </div>
+      <div style="margin-top:20px;color:var(--muted);font-size:14px">Accredited • Scholarships • Internship support</div>
+    </div>
+
+    <aside class="hero-card" aria-hidden>
+      <img class="hero-image" src="Photo/DCPI-2.jpg" alt="College campus" loading="lazy">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div>
+          <div style="font-weight:700">Directors and Teachers</div>
+          <div class="muted-small">Beautiful green campus with modern labs &amp; libraries</div>
+        </div>
+        <div class="pill">Virtual Tour</div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="section-title"><h2 id="about-title">About the College</h2><div class="muted">History • Mission • Vision</div></div>
+    <div class="grid cols-3">
+      <div class="card reveal">
+        <h3 style="margin-top:0">History</h3>
+        <p class="muted-small">Dhaka Central Polytechnic Institute (DCPI) is a prominent private Polytechnic Institute, established in 2006 and affiliated with Bangladesh Technical Education Board under the Ministry of Education.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-top:0">Mission</h3>
+        <p class="muted-small">Technology is the language of modern civilization. Without command over technology - it is very difficult to be a competent nation in the world. DCPI believes in the power of technology and wish to control it by tech loving students. The institute has taken adequate measures to contribute in technical education sector keeping persistent effort.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-top:0">Vision</h3>
+        <p class="muted-small">In the fast altering context of techno-eco and social realities, the vision of Dhaka Central Polytechnic Institute (DCPI) was conceptualized in 2006 by a team of committed professionals. The Institute has been founded in 2006 with affiliation of Bangladesh Technical Education Board (BTEB).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPAL MESSAGE -->
+  <section aria-labelledby="principal-title">
+    <div class="section-title"><h2 id="principal-title">Directors and Principal's  Message</h2><div class="muted">Leadership note</div></div>
+    <div class="card" style="display:flex;gap:18px;align-items:center">
+      <img src="Photo/Principal.jpg" alt="Principal photo" class="avatar" loading="lazy">
+      <div>
+        <p style="margin:0 0 8px;font-weight:700">MD Salim Mridha <span>(Principal)</span></p>
+        <p class="muted-small">As a response, Dhaka Central Polytechnic Institute (DCPI) has been established at 2006 to suit the employment market’s demand. DCPI is working to build the traditional Polytechnic Institute’s education system up to worldwide standards and prepare it all for success in the workplace. Moreover, DCPI encourages students to become self-reliant in the corporate world’s technical context, ability, flexibility, and social context.</p>
+      </div>
+      <div class="card" style="display:flex;gap:18px;align-items:center">
+      <img src="Photo/Chairman.jpg" alt="Principal photo" class="avatar" loading="lazy">
+      <div>
+        <p style="margin:0 0 8px;font-weight:700">A K M Hrun-ur Rashid</p>
+        <p class="muted-small">The sector of technical and vocational education in Bangladesh has entered a new era. And so for the development in the education sector, we have to build a young society with technology and skills. Furthermore, the flourishing youth society is currently receiving significant attention. Because they are the most important component of a country’s development. But there is no pool or arrangement for this young society in Bangladesh so that they can play a productive and successful role in the workplace. And indeed the current education system is working in various ways to successfully prepare young people and adults to be able to work in the global economy. All of these disciplines are being obtained under the vocational education system.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- TEACHERS -->
+  <section id="teachers" aria-labelledby="teachers-title">
+    <div class="section-title"><h2 id="teachers-title">Teachers &amp; Staff</h2><div class="muted">Experienced and supportive faculty</div></div>
+    <div class="grid cols-4">
+      <!-- Repeat teacher card. Replace images & content -->
+      <div class="card teacher reveal">
+        <img class="avatar" src="Photo/Md Sufian Sawri.jpg" alt="Teacher name" loading="lazy">
+        <div class="meta">
+          <div style="font-weight:700">Md Sufian Sawri</div>
+          <small>Instructor-Civil Department</small>
+        </div>
+      </div>
+
+      <div class="card teacher reveal">
+        <img class="avatar" src="Photo/Mazharul Islam Sazlu.jpg" alt="Teacher name" loading="lazy">
+        <div class="meta">
+          <div style="font-weight:700">Mazharul Islam Sazlu</div>
+          <small>Instructor-Electrical Department</small>
+        </div>
+      </div>
+
+      <div class="card teacher reveal">
+        <img class="avatar" src="Photo/Muntaser Mamun.jpg" alt="Teacher name" loading="lazy">
+        <div class="meta">
+          <div style="font-weight:700">Muntaser Mamun</div>
+          <small>Instructor-Computer Department</small>
+        </div>
+      </div>
+
+      <div class="card teacher reveal">
+        <img class="avatar" src="Photo/md alamin biswas.jpg" alt="Teacher name" loading="lazy">
+        <div class="meta">
+          <div style="font-weight:700">MD Alamin Biswas</div>
+          <small>Junior Instructor-Electrical Department</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" aria-labelledby="programs-title">
+    <div class="section-title"><h2 id="programs-title">Academic Programs &amp; Departments</h2><div class="muted">Diploma courses • Departments</div></div>
+    <div class="grid cols-3">
+      <div class="card reveal">
+        <h3 style="margin-top:0">Diploma in Civil Engineering</h3>
+        <p class="muted-small">Civil Engineering deals with the design, construction, and maintenance of infrastructure such as buildings, roads, and bridges. This program equips students with practical and theoretical skills for the development of modern infrastructure.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-top:0">Diploma in Computer Science and Technology</h3>
+        <p class="muted-small">Computer Science and Technology covers computer programming, hardware, networking, and software development. Graduates are skilled in solving technological problems and developing innovative digital solutions.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-top:0">Diploma in Electrical Engineering</h3>
+        <p class="muted-small">Electrical Engineering focuses on the study and application of electricity, electronics, and electromagnetism. Students learn to design, develop, and maintain electrical systems and equipment.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-top:0">Diploma in Electronics Engineering</h3>
+        <p class="muted-small">Electronics Engineering specializes in the design and development of electronic circuits, devices, and systems. The course prepares students for careers in automation, embedded systems, and modern electronics industries.</p>
+      </div>
+      <div class="card reveal">
+        <h3 style="margin-top:0">Diploma in Telecommunication Engineering</h3>
+        <p class="muted-small">Telecommunication Engineering deals with the design, installation, and maintenance of communication systems. Students gain expertise in networking, satellite systems, and modern communication technologies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" aria-labelledby="gallery-title">
+    <div class="section-title"><h2 id="gallery-title">Photo Gallery &amp; Campus Life</h2><div class="muted">Events • Labs • Campus</div></div>
+    <div class="gallery reveal" role="list">
+      <img src="Photo/১.jpg" alt="Campus photo" loading="lazy">
+      <img src="Photo/DCPI-2.jpg" alt="Students in class" loading="lazy">
+      <img src="Photo/৩.jpg" alt="Laboratory" loading="lazy">
+      <img src="Photo/DCPI.jpeg" alt="College event" loading="lazy">
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" aria-labelledby="news-title">
+    <div class="section-title"><h2 id="news-title">News &amp; Notices</h2><div class="muted">Latest announcements</div></div>
+    <div class="grid cols-3">
+      <div class="card reveal news-item">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=400&auto=format&fit=crop&s=placeholder" alt="notice" loading="lazy">
+        <div>
+          <div style="font-weight:700">Admission open 2025</div>
+          <div class="muted-small">Application deadline: Oct 25, 2025</div>
+        </div>
+      </div>
+      <div class="card reveal news-item">
+        <img src="Photo/Notice.jpeg" alt="seminar" loading="lazy">
+        <div>
+          <div style="font-weight:700">Official Notices</div>
+          <div class="muted-small">Date: Aug 17, 2025</div>
+        </div>
+      </div>
+      <div class="card reveal news-item">
+        <img src="Photo/Exam Schedules.png" alt="result" loading="lazy">
+        <div>
+          <div style="font-weight:700">Final exam timetable published</div>
+          <div class="muted-small">Check the notice board for details</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="section-title"><h2 id="contact-title">Contact &amp; Location</h2><div class="muted">Get in touch</div></div>
+    <div class="contact-grid">
+      <form class="card" id="contactForm" aria-label="Contact form">
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="field" style="flex:1;min-width:200px">
+            <label for="name">Full name</label>
+            <input id="name" name="name" required>
+          </div>
+          <div class="field" style="flex:1;min-width:200px">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="btn btn-primary" type="submit">Send Message</button>
+          <div id="formMsg" class="muted-small" aria-live="polite"></div>
+        </div>
+      </form>
+
+      <div class="card" style="padding:12px">
+        <h4 style="margin-top:0">Our College</h4>
+        <div class="muted-small">Mirpur Road, Darus Salam Tower, Dhaka-1212</div>
+        <div style="margin-top:12px">
+          <strong>Phone:</strong> +880 1888369737<br>
+          <strong>Email:</strong> dcpi@college.edu
+        </div>
+        <div style="margin-top:12px">
+          <!-- Google map embed: replace place_id or src with actual map -->
+          <iframe title="College location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271.37063463636576!2d90.35599422256232!3d23.778972233435567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0bd8b5bf64d%3A0xba36f69bae9f4d75!2sDhaka%20Central%20Polytechnic%20Institute!5e0!3m2!1sen!2sbd!4v1755024735350!5m2!1sen!2sbd" width="100%" height="200" style="border:0;border-radius:8px" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container" style="display:flex;gap:24px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap">
+    <div style="max-width:420px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div class="logo">DCPI</div>
+        <div style="font-weight:700">Dhaka Central Polytechnic Institute</div>
+      </div>
+      <div class="muted-small">Providing quality technical education since 2006. Follow us on social media for updates.</div>
+    </div>
+
+    <div style="display:flex;gap:40px">
+      <div>
+        <div style="font-weight:700;margin-bottom:8px">Quick Links</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <a href="#admissions">Admissions</a>
+          <a href="#programs">Programs</a>
+          <a href="#teachers">Faculty</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:700;margin-bottom:8px">Connect</div>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.09 5.66 21.18 10.44 22v-7.02H8.08V12.07h2.36V9.88c0-2.33 1.38-3.61 3.5-3.61.99 0 2.03.18 2.03.18v2.23h-1.14c-1.12 0-1.47.69-1.47 1.39v1.7h2.5l-.4 2.91h-2.1V22C18.34 21.18 22 17.09 22 12.07z" fill="white"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 5.92c-.63.28-1.3.47-2 .55a3.45 3.45 0 0 0-6 2.2c0 .27.03.54.09.79A9.8 9.8 0 0 1 3.2 4.7a3.44 3.44 0 0 0 1.07 4.6c-.5-.02-1-.16-1.43-.4v.04c0 1.67 1.19 3.06 2.76 3.38-.46.12-.94.14-1.43.05.4 1.24 1.55 2.14 2.92 2.17A6.92 6.92 0 0 1 2 18.06 9.77 9.77 0 0 0 8.29 20c6.14 0 9.5-5.1 9.5-9.52v-.43A6.87 6.87 0 0 0 22 5.92z" fill="white"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:22px;color:rgba(255,255,255,0.65);font-size:13px">© <span id="year"></span> College Name. All rights reserved.</div>
+</footer>
+
+<script>
+  // small helpers: menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn?.addEventListener('click', ()=>{
+    const nav = document.querySelector('nav ul');
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!expanded));
+    if(nav) nav.style.display = expanded ? 'none' : 'flex';
+  });
+
+  // reveal on scroll
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // form handling (client-side only)
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  form?.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    if(!name || !email || !message){
+      formMsg.textContent = 'Please fill required fields.'; return;
+    }
+    // TODO: connect to server endpoint (e.g. /api/contact)
+    formMsg.textContent = 'Thank you! Message sent (demo).';
+    form.reset();
+    setTimeout(()=>formMsg.textContent = '',4000);
+  });
+
+  // set year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
